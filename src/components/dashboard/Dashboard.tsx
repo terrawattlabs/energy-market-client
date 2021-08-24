@@ -1,6 +1,8 @@
 import { Button, Flex, Spacer } from "@chakra-ui/react";
 import React from "react";
 import {useEffect, useState} from "react";
+import { ChartHolder } from "../chart/chart";
+import { SiteStatus } from "../chart/status/status";
 import { ThingDiv } from "../thing/ThingDiv";
 
 
@@ -31,6 +33,8 @@ export const Dashboard: React.FC<Props> = ({name}) =>{
         return (<h1>Loading...</h1>)
     } if(thingFetchResponse !==null){
         return (
+            <>
+            <SiteStatus></SiteStatus>
             <Flex justify="space-around" mt="10">
                 {
                     //@ts-ignore
@@ -40,6 +44,8 @@ export const Dashboard: React.FC<Props> = ({name}) =>{
                 }
                    
             </Flex>
+            <ChartHolder></ChartHolder>
+            </>
         )
     }
 }
