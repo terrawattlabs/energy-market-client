@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 import React from "react";
 import {useEffect, useState} from "react";
 
@@ -32,6 +32,7 @@ export const SiteStatus: React.FC<Props> = ({name}) =>{
         return (
             <>
             {
+                //@ts-ignore
             thingFetchResponse.data!.nodes.map((node)=>{
                 return <Box>{node.name} is currently at - {node.status} and {node.currentPower}</Box>
             })

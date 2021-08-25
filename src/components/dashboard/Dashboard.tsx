@@ -2,7 +2,7 @@ import { Button, Flex, Spacer } from "@chakra-ui/react";
 import React from "react";
 import {useEffect, useState} from "react";
 import { ChartHolder } from "../chart/chart";
-import { SiteStatus } from "../chart/status/status";
+import { SiteStatus } from "../status/status";
 import { ThingDiv } from "../thing/ThingDiv";
 
 
