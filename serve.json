@@ -1,0 +1,15 @@
+{
+  "public": "_site",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/start-react-free"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/start-react-free/**",
+      "destination": "/start-react-free/index.html"
+    }
+  ]
+}
