@@ -11,9 +11,10 @@ interface Props {
 }
 
 const useFetch = (url: string)=>{
+
     const [data, setData] = useState({isLoading: true, data: null});
     const getDataFromAPI = async (url: string) =>{
-        const res = await fetch(url);
+        const res = await fetch(url, {headers: {'Access-Control-Allow-Origin': "*"}});
         const data = await res.json();
         setData({isLoading: false, data: data})
     }   
@@ -26,7 +27,7 @@ const useFetch = (url: string)=>{
 
 //@ts-ignore
 export const Dashboard: React.FC<Props> = ({name}) =>{
-    const thingFetchResponse = useFetch('/api/getThings')
+    const thingFetchResponse = useFetch('http://localhost:4000/energio/getThings')
     console.log(thingFetchResponse);
 
     if(thingFetchResponse.isLoading) {

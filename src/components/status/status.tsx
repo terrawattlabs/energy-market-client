@@ -23,7 +23,7 @@ const useFetch = (url: string)=>{
 
 //@ts-ignore
 export const SiteStatus: React.FC<Props> = ({name}) =>{
-    const thingFetchResponse = useFetch('/api/getSiteStatus')
+    const thingFetchResponse = useFetch('/energio/getSiteStatus')
     console.log(thingFetchResponse);
 
     if(thingFetchResponse.isLoading) {

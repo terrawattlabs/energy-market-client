@@ -36,7 +36,7 @@ export const ThingDiv: React.FC<Props> = ({thing}) =>{
                 >
             </Box>
             <Box>
-            Current Orders
+            Current Orders!!!!
             <Box as="span" color="gray.600" fontSize="sm">
                 <Divider></Divider>
             </Box>
