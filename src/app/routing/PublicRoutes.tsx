@@ -6,7 +6,9 @@ export function PublicRoutes() {
   return (
     <Switch>
       <Route path="/auth" component={AuthPage} />
+      
       <Redirect to="/auth" />
+
     </Switch>
   );
 }

@@ -14,6 +14,8 @@ export function PrivateRoutes() {
   );
   const DocsPageWrapper = lazy(() => import("../modules/docs/DocsPageWrapper"));
 
+
+
   return (
     <Suspense fallback={<FallbackView />}>
       <Switch>
