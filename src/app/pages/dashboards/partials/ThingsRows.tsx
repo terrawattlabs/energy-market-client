@@ -70,7 +70,7 @@ const ThingsRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
             <span className="fw-bolder text-primary"></span>
             </td>
             <td className="text-end pe-0">
-            <a className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+            <a className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" href={'/profile'}>
                 <KTSVG
                 className="svg-icon-4"
                 path="/media/icons/duotone/Navigation/Arrow-right.svg"

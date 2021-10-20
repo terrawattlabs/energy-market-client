@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Query, Builder, Utils as QbUtils } from "react-awesome-query-builder";
 // types
 import {
@@ -17,57 +17,55 @@ import "antd/dist/antd.css"; // or import "react-awesome-query-builder/css/antd.
 import "react-awesome-query-builder/lib/css/styles.css";
 import "react-awesome-query-builder/lib/css/compact_styles.css"; //optional, for more compact styles
 
+
 // Choose your skin (ant/material/vanilla):
 const InitialConfig = AntdConfig; // or MaterialConfig or BasicConfig
 
+
+const ruleID = "616f53a56e1b83a2c5c8a741";
 // You need to provide your own config. See below 'Config format'
 const config: Config = {
   ...InitialConfig,
   fields: {
-    qty: {
-      label: "Qty",
-      type: "number",
-      fieldSettings: {
-        min: 0
-      },
-      valueSources: ["value"],
-      preferWidgets: ["number"]
-    },
-    price: {
-      label: "Price",
-      type: "number",
+    duration: {
+      label: "Minutes On Today",
+      type: "boolean",
       valueSources: ["value"],
       fieldSettings: {
-        min: 10,
-        max: 100
-      },
-      preferWidgets: ["slider", "rangeslider"]
-    },
-    color: {
-      label: "Color",
-      type: "select",
-      valueSources: ["value"],
-      fieldSettings: {
-        listValues: [
-          { value: "yellow", title: "Yellow" },
-          { value: "green", title: "Green" },
-          { value: "orange", title: "Orange" }
-        ]
+        min: 0,
+        max: 1440
       }
     },
-    is_promotion: {
-      label: "Promo?",
-      type: "boolean",
-      operators: ["equal"],
-      valueSources: ["value"]
-    }
+    currentBid: {
+      label: 'Current Bid Type',
+      type: 'select',
+      valueSources: ['value'],
+      fieldSettings: {
+        listValues: [
+          { value: 'bid', title: 'Bid' },
+          { value: 'ask', title: 'Ask' }
+        ],
+      }
+  },
+    is_on: {
+    label: 'Is Device On?',
+    type: 'boolean',
+    operators: ['equal'],
+    valueSources: ['value'],
+}
   }
 };
+
+
 
 // You can load query value from your backend storage (for saving see `Query.onChange()`)
 const queryValue: JsonGroup = { id: QbUtils.uuid(), type: "group" };
 
+
+
+
 export const Overview: React.FC = () => {
+
   const [state, setState] = useState({
     tree: QbUtils.checkTree(QbUtils.loadTree(queryValue), config),
     config: config
@@ -78,7 +76,11 @@ export const Overview: React.FC = () => {
     setState({ tree: immutableTree, config: config });
 
     const jsonTree = QbUtils.getTree(immutableTree);
-    console.log(jsonTree);
+    // console.log(jsonTree);
+    const jsonLogic = QbUtils.jsonLogicFormat(state.tree, state.config)
+    const d = {tree: jsonTree, jlog: jsonLogic};
+    console.log(d)
+    fetch(`http://localhost:4000/energio/updateRule/${ruleID}`, {method: 'POST', body: JSON.stringify(d), headers: {'Access-Control-Allow-Origin': "*", 'Content-Type': 'application/json'}}).then(x=>console.log(x)).catch(y=>console.log(y))
     // `jsonTree` can be saved to backend, and later loaded to `queryValue`
   };
 
