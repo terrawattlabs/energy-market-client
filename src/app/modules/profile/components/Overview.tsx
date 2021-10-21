@@ -80,7 +80,7 @@ export const Overview: React.FC = () => {
     const jsonLogic = QbUtils.jsonLogicFormat(state.tree, state.config)
     const d = {tree: jsonTree, jlog: jsonLogic};
     console.log(d)
-    fetch(`http://localhost:4000/energio/updateRule/${ruleID}`, {method: 'POST', body: JSON.stringify(d), headers: {'Access-Control-Allow-Origin': "*", 'Content-Type': 'application/json'}}).then(x=>console.log(x)).catch(y=>console.log(y))
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/energio/updateRule/${ruleID}`, {method: 'POST', body: JSON.stringify(d), headers: {'Access-Control-Allow-Origin': "*", 'Content-Type': 'application/json'}}).then(x=>console.log(x)).catch(y=>console.log(y))
     // `jsonTree` can be saved to backend, and later loaded to `queryValue`
   };
 

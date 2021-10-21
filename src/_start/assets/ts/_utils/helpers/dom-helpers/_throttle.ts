@@ -6,6 +6,7 @@ export function throttle(timer: number | undefined, func: Function, delay?: numb
   }
 
   // Schedule a setTimeout after delay seconds
+  //@ts-ignore
   timer = setTimeout(function () {
     func();
 

@@ -26,7 +26,7 @@ const useFetch = (url: string)=>{
 }
 
 const ListsWidget1: React.FC<Props> = ({ className }) => {
-  const thingFetchResponse = useFetch('http://localhost:4000/energio/getThings');
+  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getThings`);
   if(thingFetchResponse.isLoading) {
     return (<h1>Loading...</h1>)
 } if(thingFetchResponse !==null){

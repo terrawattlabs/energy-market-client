@@ -27,15 +27,15 @@ const useFetch = (url: string)=>{
 }
 
 const ThingsRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
-  const thingFetchResponse = useFetch('http://localhost:4000/energio/getThings');
+  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getThings`);
   console.log(thingFetchResponse)
   if(thingFetchResponse.isLoading) {
-    return (<h1>Loading...</h1>)
+    return (<tr><td>Loading...</td></tr>)
   }if(thingFetchResponse !==null){
      //@ts-ignore
      return thingFetchResponse!.data.map((t)=>{
         return (
-            <tr>
+            <tr key={t._id}>
             <td className="px-0 py-3">
             <div className="symbol symbol-55px mt-1 me-5">
                 <span className="symbol-label bg-light-primary align-items-end">
@@ -60,7 +60,7 @@ const ThingsRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
             <td></td>
             <td className="text-end">
             <span className="text-gray-800 fw-bolder d-block fs-6">
-                ${t.orders[0].price}
+             {'$'}{t.orders[0].price}
             </span>
             <span className="text-muted fw-bold d-block mt-1 fs-7">
             {t.orders[0].amount} watts

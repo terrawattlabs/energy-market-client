@@ -29,7 +29,7 @@ const useFetch = (url: string)=>{
 }
 
 const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
-  const thingFetchResponse = useFetch('http://localhost:4000/energio/getTransactionList');
+  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getTransactionList`);
   console.log(thingFetchResponse)
   if(thingFetchResponse.isLoading) {
     return (<h1>Loading...</h1>)
@@ -37,9 +37,8 @@ const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
      //@ts-ignore
      return thingFetchResponse!.data.map((t)=>{
         return (
-           <>
-           {/* begin::Item */}
-          <div className="timeline-item">
+   
+          <div className="timeline-item" key={t._id}>
             {/* begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               {
@@ -56,16 +55,14 @@ const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
 
             {/* begin::Desc */}
             <div className="timeline-content fw-bolder text-gray-800 ps-3">
-              The {t.buyer} purchased {t.amount}kw of energy from the {t.seller} for ${t.price}/kw and a total of{" "}
+              The {t.buyer} purchased {t.amount}kw of energy from the {t.seller} for {'$'}{t.price}/kw and a total of{" "}
               <a href="#" className="text-primary">
-                ${t.price * t.amount}
+                {'$'}{t.price * t.amount}
               </a>
             </div>
             {/* end::Desc */}
           </div>
-          {/* end::Item */}</>
-
-            )
+          )
      })
             
 } else {
