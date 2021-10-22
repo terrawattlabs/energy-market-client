@@ -37,7 +37,6 @@ const MasterLayout: React.FC = ({ children }) => {
       </div>
       <ScrollTop />
       <MasterInit />
-      <ExploreMain />
     </PageDataProvider>
   );
 };

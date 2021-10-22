@@ -23,7 +23,7 @@ export const StartDashboardPage: React.FC = () => {
       {/* begin::Row */}
       <div className="row g-0 g-xl-5 g-xxl-8">
   
-        <div className="col-xl-8">
+        <div className="col-12">
           <TablesWidget2 className="card-stretch mb-5 mb-xxl-8" />
         </div>
       </div>
@@ -32,17 +32,11 @@ export const StartDashboardPage: React.FC = () => {
 
       {/* begin::Row */}
       <div className="row g-0 g-xl-5 g-xxl-8">
-        <div className="col-xl-4">
+        <div className="col-12">
           <ListsWidget1 className="card-stretch mb-5 mb-xxl-8" />
         </div>
       </div>
       {/* end::Row */}
-
-      <StatsWidget6 className="card-stretch-50 mb-5 mb-xxl-8" />
-
-      {/* begin::Modals */}
-      <CreateAppModal show={show} handleClose={() => setShow(false)} />
-      {/* end::Modals */}
     </>
   );
 };

@@ -10,7 +10,7 @@ export const DefaultThemeConfig: IThemeConfig = {
   },
   header: {
     display: true, // Set true|false to show or hide Header
-    width: "fixed", // Set fixed|fluid to change width type
+    width: "fluid", // Set fixed|fluid to change width type
     fixed: {
       desktop: true, // Set true|false to set fixed Header for desktop mode
       tabletAndMobile: true, // Set true|false to set fixed Header for tablet and mobile modes
@@ -29,21 +29,21 @@ export const DefaultThemeConfig: IThemeConfig = {
     minimized: false, // Minimize aside by default
   },
   content: {
-    width: "fixed", // Set fixed|fluid to change width 
+    width: "fluid", // Set fixed|fluid to change width 
     layout: "default",
   },
   toolbar: {
     display: true, // Set true|false to show or hide Subheader
-    width: "fixed", // Set fixed|fluid to change width type,
+    width: "fluid", // Set fixed|fluid to change width type,
     breadcrumb: true, // Set true|false to show or hide Breadcrumb
   },
   footer: {
-    width: "fixed", // Set fixed|fluid to change width type
+    width: "fluid", // Set fixed|fluid to change width type
   },
   sidebar: {
-    display: true, // Set true|false to add or remove  Sidebar
+    display: false, // Set true|false to add or remove  Sidebar
     toggle: false, // Set true|false to enable Sidebar show and hide toggle
-    shown: true, // Set true|false to by default show or hide Sidebar
+    shown: false, // Set true|false to by default show or hide Sidebar
     content: "general", // Set general|user|shop content for Sidebar
     bgColor: "bg-info", // Set background class for Sidebar,
     displayFooter: true, // Set true|false to display Sidebar Footer

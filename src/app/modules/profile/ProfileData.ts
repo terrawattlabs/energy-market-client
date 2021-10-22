@@ -16,6 +16,6 @@ export const profileSubmenu: Array<PageLink> = [
     title: "Settings",
     path: "/profile/settings",
     isActive: false,
-    isPro: true,
+    isPro: false,
   },
 ];
