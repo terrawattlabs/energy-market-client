@@ -55,7 +55,7 @@ const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
 
             {/* begin::Desc */}
             <div className="timeline-content fw-bolder text-gray-800 ps-3">
-              The {t.buyer} purchased {t.amount}kw of energy from the {t.seller} for {'$'}{t.price}/kw and a total of{" "}
+              The <pre>{t.buyer}</pre> purchased {t.amount}kw of energy from the <pre>{t.seller}</pre> for {'$'}{t.price}/kw and a total of{" "}
               <a href="#" className="text-primary">
                 {'$'}{t.price * t.amount}
               </a>
