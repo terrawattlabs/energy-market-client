@@ -29,7 +29,7 @@ const useFetch = (url: string)=>{
 }
 
 const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
-  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getTransactionList`);
+  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/api/getTransactionList`);
   console.log(thingFetchResponse)
   if(thingFetchResponse.isLoading) {
     return (<h1>Loading...</h1>)

@@ -29,7 +29,7 @@ export const Overview: React.FC = () => {
     let updateObject = {
       name: thingobject.data.name
     }
-    const updateDB = await fetch(`${process.env.REACT_APP_BACKEND_URL}/energio/updateThing/${thing}`, {
+    const updateDB = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/updateThing/${thing}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ export const Overview: React.FC = () => {
     sethingobject(updateObj)
 }
 
-  const fullThing = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getThing/${thing}`);
+  const fullThing = useFetch(`${process.env.REACT_APP_BACKEND_URL}/api/getThing/${thing}`);
 
   if(fullThing.isLoading && thingobject !== null){
     return (<p>Loading...</p>)

@@ -27,7 +27,7 @@ const useFetch = (url: string)=>{
 }
 
 const ThingsRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
-  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/energio/getThings`);
+  const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/api/getThings`);
   console.log(thingFetchResponse)
   if(thingFetchResponse.isLoading) {
     return (<tr><td>Loading...</td></tr>)
