@@ -28,6 +28,8 @@ const useFetch = (url: string)=>{
   return data
 }
 
+
+
 const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
   const thingFetchResponse = useFetch(`${process.env.REACT_APP_BACKEND_URL}/api/getTransactionList`);
   console.log(thingFetchResponse)
@@ -55,9 +57,9 @@ const TransactionRows: React.FC<Props> = ({ className, innerPadding = "" }) => {
 
             {/* begin::Desc */}
             <div className="timeline-content fw-bolder text-gray-800 ps-3">
-              The <pre>{t.buyer}</pre> purchased {t.amount}kw of energy from the <pre>{t.seller}</pre> for {'$'}{t.price}/kw and a total of{" "}
+              The <pre>{t.buyer}</pre> purchased {t.amount} watts of energy from the <pre>{t.seller}</pre> for {'$'}{t.price}/kwh and a total of{" "}
               <a href="#" className="text-primary">
-                {'$'}{t.price * t.amount}
+                {'$'}{t.price/10000 * t.amount} per hour
               </a>
             </div>
             {/* end::Desc */}
